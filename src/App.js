@@ -3,15 +3,38 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    votes: 3
+  };
+
+  onVoteChanges = (data) => {
+    this.setState({votes: data.detail})
+  }
+
+  changeVote(votes){
+    this.setState({ votes });
+  }
+
+  componentDidMount(){
+    this.voteCmp = this.refs.voteCmp;
+    this.voteCmp.addEventListener('voteChanges', this.onVoteChanges);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <div>
+          Total votes count {this.state.votes}
+        </div>
+        <hr/>
+        <p>
+          <vote-cmp ref="voteCmp" votes={this.state.votes}></vote-cmp>
+        </p>
+        <hr/>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <button onClick={() => this.changeVote(10)}>Set 10 votes</button>
+          <button onClick={() => this.changeVote(3)}>Reset Votes</button>
         </p>
       </div>
     );
