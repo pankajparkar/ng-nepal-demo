@@ -34,7 +34,7 @@ class App extends Component {
         <hr/>
         <p className="App-intro">
           <button onClick={() => this.changeVote(10)}>Set 10 votes</button>
-          <button onClick={() => this.changeVote(3)}>Reset Votes</button>
+          <button onClick={() => this.changeVote(0)}>Reset Votes</button>
         </p>
       </div>
     );
