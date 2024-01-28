@@ -28,6 +28,17 @@
 
 .App-intro {
   font-size: large;
+  display: flex;
+  gap: 6px;
+}
+.App-intro button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+.App-intro button:hover {
+  background: rgba(0,0,0, .1);
 }
 
 @keyframes App-logo-spin {
